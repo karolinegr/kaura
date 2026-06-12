@@ -14,7 +14,7 @@ export default function Distance() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mx-auto max-w-3xl rounded-3xl border border-sage/40 bg-cream/80 p-4 shadow-sm backdrop-blur-sm sm:p-8"
+        className="mx-auto max-w-3xl rounded-3xl border border-sage/40 bg-cream/80 p-3 shadow-sm backdrop-blur-sm sm:p-8"
       >
         <svg viewBox="0 0 640 300" className="w-full" role="img" aria-label="mapa do amor">
           {/* rota pontilhada entre as cidades */}
@@ -35,7 +35,7 @@ export default function Distance() {
               <animate attributeName="opacity" values="0.35;0;0.35" dur="2.4s" repeatCount="indefinite" />
             </circle>
             <circle className="fill-bluedeep" cx="140" cy="110" r="9" />
-            <text className="fill-cocoa" x="140" y="84" textAnchor="middle" fontSize="20" fontFamily="Inter">
+            <text className="fill-cocoa" x="140" y="84" textAnchor="middle" fontSize="27" fontFamily="Inter">
               {config.cityA}
             </text>
           </g>
@@ -47,7 +47,7 @@ export default function Distance() {
               <animate attributeName="opacity" values="0.35;0;0.35" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
             </circle>
             <circle className="fill-forest" cx="500" cy="200" r="9" />
-            <text className="fill-cocoa" x="500" y="240" textAnchor="middle" fontSize="20" fontFamily="Inter">
+            <text className="fill-cocoa" x="500" y="240" textAnchor="middle" fontSize="27" fontFamily="Inter">
               {config.cityB}
             </text>
           </g>
@@ -62,10 +62,10 @@ export default function Distance() {
         </svg>
 
         <div className="mt-2 text-center">
-          <p className="font-serif text-5xl font-semibold text-mix">
+          <p className="font-serif text-4xl font-semibold text-mix sm:text-5xl">
             {config.distanceKm.toLocaleString('pt-BR')} km
           </p>
-          <p className="mt-2 font-hand text-2xl text-moss">
+          <p className="mt-2 font-hand text-xl text-moss sm:text-2xl">
             que não significam nada quando o coração já mora aí ♡
           </p>
         </div>

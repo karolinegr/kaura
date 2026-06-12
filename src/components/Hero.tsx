@@ -37,7 +37,7 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.1 }}
-        className="mt-2 font-serif text-7xl font-semibold leading-none text-mix sm:text-8xl"
+        className="mt-2 font-serif text-6xl font-semibold leading-none text-mix sm:text-8xl"
       >
         {config.siteTitle}
       </motion.h1>
@@ -65,9 +65,9 @@ export default function Hero() {
           {units.map((u) => (
             <div
               key={u.key}
-              className="min-w-[64px] rounded-2xl border border-sage/40 bg-cream/80 px-3 py-3 shadow-sm backdrop-blur-sm sm:min-w-[84px] sm:px-4"
+              className="min-w-[52px] rounded-2xl border border-sage/40 bg-cream/80 px-2.5 py-3 shadow-sm backdrop-blur-sm sm:min-w-[84px] sm:px-4"
             >
-              <div className="font-serif text-3xl font-semibold tabular-nums text-forest sm:text-5xl">
+              <div className="font-serif text-2xl font-semibold tabular-nums text-forest sm:text-5xl">
                 {pad(t[u.key])}
               </div>
               <div className="mt-1 text-[11px] uppercase tracking-wider text-cocoa/50 sm:text-xs">

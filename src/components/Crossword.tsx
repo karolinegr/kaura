@@ -157,6 +157,27 @@ export default function Crossword() {
   const across = WORDS.filter((w) => w.dir === 'across').sort(byNum)
   const down = WORDS.filter((w) => w.dir === 'down').sort(byNum)
 
+  // navegação de dica (barra do celular)
+  const findWord = (cell: Cell, d: Dir) =>
+    WORDS.find(
+      (w) =>
+        w.dir === d &&
+        (d === 'across'
+          ? w.row === cell.r && cell.c >= w.col && cell.c < w.col + w.answer.length
+          : w.col === cell.c && cell.r >= w.row && cell.r < w.row + w.answer.length),
+    )
+  const allClues = [...WORDS].sort(
+    (a, b) =>
+      (wordNum.get(a) ?? 0) - (wordNum.get(b) ?? 0) ||
+      (a.dir === b.dir ? 0 : a.dir === 'across' ? -1 : 1),
+  )
+  const currentClue = (active && findWord(active, dir)) ?? allClues[0]
+  const goRel = (delta: number) => {
+    const i = allClues.indexOf(currentClue)
+    const next = allClues[(i + delta + allClues.length) % allClues.length]
+    if (next) selectClue(next)
+  }
+
   return (
     <Section
       id="cruzadas"
@@ -166,16 +187,16 @@ export default function Crossword() {
     >
       <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-center">
         {/* grade */}
-        <div className="shrink-0 overflow-x-auto">
+        <div className="w-full shrink-0 text-center lg:w-auto">
           <div
-            className="inline-grid gap-0.5 rounded-xl bg-sage/30 p-2"
-            style={{ gridTemplateColumns: `repeat(${COLS}, 2.25rem)` }}
+            className="inline-grid gap-0.5 rounded-xl bg-sage/30 p-2 text-left"
+            style={{ gridTemplateColumns: `repeat(${COLS}, clamp(1.5rem, 8.2vw, 2.25rem))` }}
           >
             {Array.from({ length: ROWS * COLS }).map((_, idx) => {
               const r = Math.floor(idx / COLS)
               const c = idx % COLS
               const k = key(r, c)
-              if (!solution.has(k)) return <div key={k} className="h-9 w-9" />
+              if (!solution.has(k)) return <div key={k} className="aspect-square w-full" />
 
               const isActive = active?.r === r && active?.c === c
               const inWord = activeWord.has(k)
@@ -185,7 +206,7 @@ export default function Crossword() {
               const num = numbers.get(k)
 
               return (
-                <div key={k} className="relative h-9 w-9">
+                <div key={k} className="relative aspect-square w-full">
                   {num && (
                     <span className="pointer-events-none absolute left-0.5 top-0 z-10 text-[9px] font-semibold text-cocoa/60">
                       {num}
@@ -201,7 +222,7 @@ export default function Crossword() {
                     inputMode="text"
                     maxLength={1}
                     aria-label={`linha ${r + 1}, coluna ${c + 1}`}
-                    className={`h-full w-full rounded-sm border text-center font-serif text-lg font-semibold uppercase caret-transparent outline-none transition-colors ${
+                    className={`h-full w-full rounded-sm border text-center font-serif text-base font-semibold uppercase caret-transparent outline-none transition-colors sm:text-lg ${
                       isActive
                         ? 'border-blue bg-blue/30'
                         : inWord
@@ -212,6 +233,33 @@ export default function Crossword() {
                 </div>
               )
             })}
+          </div>
+
+          {/* barra de dica navegável (celular/tablet) */}
+          <div className="mx-auto mt-4 flex max-w-md items-center gap-2 lg:hidden">
+            <button
+              onClick={() => goRel(-1)}
+              aria-label="dica anterior"
+              className="shrink-0 rounded-full border border-sage/50 px-3 py-2 text-lg leading-none text-forest active:bg-blush"
+            >
+              ‹
+            </button>
+            <button
+              onClick={() => currentClue && selectClue(currentClue)}
+              className="flex-1 rounded-xl bg-blush px-3 py-2 text-left text-sm text-cocoa"
+            >
+              <span className="mr-1 font-semibold text-moss">
+                {wordNum.get(currentClue)} {currentClue.dir === 'across' ? '→' : '↓'}
+              </span>
+              {currentClue.clue}
+            </button>
+            <button
+              onClick={() => goRel(1)}
+              aria-label="próxima dica"
+              className="shrink-0 rounded-full border border-sage/50 px-3 py-2 text-lg leading-none text-forest active:bg-blush"
+            >
+              ›
+            </button>
           </div>
 
           <div className="mt-4 flex items-center justify-center gap-3">
@@ -240,8 +288,8 @@ export default function Crossword() {
           )}
         </div>
 
-        {/* dicas */}
-        <div className="grid w-full max-w-md grid-cols-1 gap-6 sm:grid-cols-2 lg:w-auto">
+        {/* dicas (lista completa só no desktop) */}
+        <div className="hidden w-full max-w-md grid-cols-2 gap-6 lg:grid lg:w-auto">
           {[
             { title: 'horizontais →', list: across },
             { title: 'verticais ↓', list: down },
