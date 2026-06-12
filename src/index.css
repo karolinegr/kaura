@@ -1,0 +1,169 @@
+@import 'tailwindcss';
+
+/* ════════════════════════════════════════════════════════════
+   TEMA "kaura"
+   Paleta: as cores DELA (verde + marrom terroso) como base,
+   o AZUL (seu) entrando nos detalhes — as cores de vocês misturadas.
+   E um rosa-tulipa pros toques românticos. 🌷
+   Mude os valores aqui e o site inteiro muda junto.
+   ════════════════════════════════════════════════════════════ */
+@theme {
+  /* base terrosa */
+  --color-sand: #f4efe4; /* fundo da página */
+  --color-cream: #fffdf7; /* cartões claros */
+  --color-blush: #e9efdc; /* superfícies em verde bem suave */
+
+  /* verdes (dela) */
+  --color-sage: #a7bd8a;
+  --color-moss: #6f854f;
+  --color-forest: #3f5233;
+
+  /* marrons (dela) */
+  --color-brown: #8a5a38;
+  --color-cocoa: #553a27;
+
+  /* azul (seu) — a sua presença no meio das cores dela */
+  --color-blue: #5f80a0;
+  --color-bluedeep: #3c5d7d;
+
+  /* tulipa (romance) e dourado (luxo discreto) */
+  --color-tulip: #d96f93;
+  --color-gold: #c79a4a;
+
+  /* ── apelidos usados pelos componentes (mantidos por compatibilidade) ── */
+  --color-rose: var(--color-sage); /* linhas/bordas suaves */
+  --color-rosedeep: var(--color-moss); /* acento principal */
+  --color-wine: var(--color-forest); /* títulos */
+  --color-plum: var(--color-cocoa); /* texto do corpo */
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-sand);
+  color: var(--color-cocoa);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scrollbar no tema */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-blush);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-moss);
+}
+
+/* Texto com degradê verde→azul (as cores de vocês misturadas) */
+.text-mix {
+  background: linear-gradient(100deg, var(--color-forest), var(--color-moss) 40%, var(--color-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Botão/superfície com degradê verde→azul */
+.bg-mix {
+  background-image: linear-gradient(120deg, var(--color-moss), var(--color-blue));
+}
+
+/* Flutuar suave */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Coraçãozinho/avião viajando ao longo de um caminho (seção da distância) */
+@keyframes travel {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   MODO NOITE 🌙
+   Sobrescreve as variáveis de cor — o site inteiro fica noturno.
+   ════════════════════════════════════════════════════════════ */
+@custom-variant night (&:where(.night, .night *));
+
+html.night {
+  --color-sand: #0e1326;
+  --color-cream: #1b2440;
+  --color-blush: #232e4d;
+  --color-sage: #46577a;
+  --color-moss: #9ec089;
+  --color-forest: #d7e6c8;
+  --color-brown: #ca9a6f;
+  --color-cocoa: #e9e3d6;
+  --color-blue: #8fb6e0;
+  --color-bluedeep: #b9d4f0;
+  --color-tulip: #ef93b2;
+  --color-gold: #e3c074;
+  /* apelidos seguem os de cima */
+  --color-rose: #46577a;
+  --color-rosedeep: #9ec089;
+  --color-wine: #d7e6c8;
+  --color-plum: #e9e3d6;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) rotate(35deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(420px, 300px) rotate(35deg);
+    opacity: 0;
+  }
+}
