@@ -47,9 +47,6 @@ export default function Songs() {
           )
         })}
       </div>
-      <p className="mt-8 text-center font-hand text-xl text-moss">
-        🎧 a primeira já está tocando aqui no site — é só apertar o play no canto ♡
-      </p>
     </Section>
   )
 }

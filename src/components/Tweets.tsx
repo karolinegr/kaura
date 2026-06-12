@@ -14,7 +14,7 @@ export default function Tweets() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
             whileHover={{ rotate: i % 2 ? 1 : -1, scale: 1.02 }}
-            className="break-inside-avoid rounded-2xl bg-white p-2 shadow-sm ring-1 ring-rose/20"
+            className="break-inside-avoid rounded-2xl bg-cream p-2 shadow-sm ring-1 ring-rose/20"
           >
             <img
               src={tweet.src}

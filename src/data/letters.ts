@@ -28,7 +28,7 @@ E olha só onde a gente chegou.`,
     sign: 'sua',
   },
   {
-    title: 'um ano (e tantos sorrisos) depois',
+    title: 'um mês (e tantos sorrisos) depois',
     body: `Obrigada por cada risada, cada abraço, cada "deu tudo certo".
 Feliz aniversário de namoro, meu amor.
 Que venham muitos outros.`,

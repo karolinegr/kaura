@@ -13,6 +13,7 @@ import Passions from './components/Passions'
 import Crossword from './components/Crossword'
 import Tickets from './components/Tickets'
 import MusicPlayer from './components/MusicPlayer'
+import SafeBoundary from './components/SafeBoundary'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { config } from './config'
 
@@ -46,7 +47,9 @@ export default function App() {
           {config.shipFormula} · {config.siteTitle} · {new Date().getFullYear()}
         </p>
       </footer>
-      <MusicPlayer />
+      <SafeBoundary>
+        <MusicPlayer />
+      </SafeBoundary>
     </>
   )
 }

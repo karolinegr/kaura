@@ -161,7 +161,7 @@ export default function Crossword() {
     <Section
       id="cruzadas"
       title="palavras cruzadas de nós"
-      subtitle="resolva esse pra mim? 🧩"
+      subtitle="Resolve essa pra mim? 🧩"
       className="bg-gradient-to-b from-sand to-blush/40"
     >
       <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-center">

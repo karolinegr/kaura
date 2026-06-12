@@ -10,23 +10,42 @@ import { config } from '../config'
  */
 export default function MusicPlayer() {
   const playerRef = useRef<YouTubePlayer | null>(null)
+  const gestureCleanup = useRef<(() => void) | null>(null)
   const [playing, setPlaying] = useState(false)
   const [ready, setReady] = useState(false)
 
-  // Tenta tocar assim que dá. Como o navegador bloqueia som automático,
-  // também começa no PRIMEIRO gesto dela (clique, tecla, scroll ou toque).
+  // chamadas seguras: o player do YouTube pode estourar erro interno se for
+  // chamado antes de estar 100% pronto — o try/catch evita derrubar o app.
+  const safePlay = () => {
+    try {
+      playerRef.current?.playVideo()
+    } catch {
+      /* player ainda não pronto — ignora */
+    }
+  }
+  const safePause = () => {
+    try {
+      playerRef.current?.pauseVideo()
+    } catch {
+      /* idem */
+    }
+  }
+
+  // Tenta tocar assim que dá. Como o navegador bloqueia som automático, fica
+  // tentando a CADA gesto (clique, tecla, scroll, toque) até realmente começar
+  // — e só então para de escutar (ver onStateChange).
   useEffect(() => {
     if (!ready) return
-    const play = () => playerRef.current?.playVideo()
-    play()
-    const start = () => {
-      play()
-      cleanup()
-    }
+    safePlay()
+    const onGesture = () => safePlay()
     const events = ['pointerdown', 'keydown', 'touchstart', 'scroll'] as const
-    const cleanup = () => events.forEach((e) => window.removeEventListener(e, start))
-    events.forEach((e) => window.addEventListener(e, start, { passive: true }))
-    return cleanup
+    events.forEach((e) => window.addEventListener(e, onGesture, { passive: true }))
+    gestureCleanup.current = () => {
+      events.forEach((e) => window.removeEventListener(e, onGesture))
+      gestureCleanup.current = null
+    }
+    return () => gestureCleanup.current?.()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready])
 
   if (!config.youtubeId) return null
@@ -38,14 +57,14 @@ export default function MusicPlayer() {
 
   const onStateChange = (e: YouTubeEvent<number>) => {
     // 1 = tocando, 2 = pausado, 0 = terminou
-    setPlaying(e.data === 1)
+    const isPlaying = e.data === 1
+    setPlaying(isPlaying)
+    if (isPlaying) gestureCleanup.current?.() // começou: para de escutar gestos
   }
 
   const toggle = () => {
-    const player = playerRef.current
-    if (!player) return
-    if (playing) player.pauseVideo()
-    else player.playVideo()
+    if (playing) safePause()
+    else safePlay()
   }
 
   const opts: YouTubeProps['opts'] = {

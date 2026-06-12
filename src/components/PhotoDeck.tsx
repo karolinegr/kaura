@@ -69,7 +69,7 @@ export default function PhotoDeck() {
                 draggable={false}
                 className="h-64 w-60 select-none rounded-sm object-cover"
               />
-              <p className="absolute inset-x-0 bottom-3 text-center font-hand text-2xl text-cocoa">
+              <p className="absolute inset-x-0 bottom-3 text-center font-hand text-2xl text-[#5a3d28]">
                 {photos[i].caption}
               </p>
             </animated.div>

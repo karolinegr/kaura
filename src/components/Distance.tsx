@@ -20,9 +20,9 @@ export default function Distance() {
           {/* rota pontilhada entre as cidades */}
           <path
             id="route"
+            className="stroke-sage"
             d="M140,110 C290,30 360,290 500,200"
             fill="none"
-            stroke="#a7bd8a"
             strokeWidth="3"
             strokeDasharray="2 10"
             strokeLinecap="round"
@@ -30,24 +30,24 @@ export default function Distance() {
 
           {/* pino: cidade A (azul = você) */}
           <g>
-            <circle cx="140" cy="110" r="20" fill="#5f80a0" opacity="0.35">
+            <circle className="fill-blue" cx="140" cy="110" r="20" opacity="0.35">
               <animate attributeName="r" values="14;22;14" dur="2.4s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.35;0;0.35" dur="2.4s" repeatCount="indefinite" />
             </circle>
-            <circle cx="140" cy="110" r="9" fill="#3c5d7d" />
-            <text x="140" y="84" textAnchor="middle" fontSize="20" fontFamily="Inter" fill="#553a27">
+            <circle className="fill-bluedeep" cx="140" cy="110" r="9" />
+            <text className="fill-cocoa" x="140" y="84" textAnchor="middle" fontSize="20" fontFamily="Inter">
               {config.cityA}
             </text>
           </g>
 
           {/* pino: cidade B (verde = ela) */}
           <g>
-            <circle cx="500" cy="200" r="20" fill="#6f854f" opacity="0.35">
+            <circle className="fill-moss" cx="500" cy="200" r="20" opacity="0.35">
               <animate attributeName="r" values="14;22;14" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.35;0;0.35" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
             </circle>
-            <circle cx="500" cy="200" r="9" fill="#3f5233" />
-            <text x="500" y="240" textAnchor="middle" fontSize="20" fontFamily="Inter" fill="#553a27">
+            <circle className="fill-forest" cx="500" cy="200" r="9" />
+            <text className="fill-cocoa" x="500" y="240" textAnchor="middle" fontSize="20" fontFamily="Inter">
               {config.cityB}
             </text>
           </g>

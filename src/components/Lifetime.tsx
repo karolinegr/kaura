@@ -5,8 +5,8 @@ import HeartParticles from './HeartParticles'
 
 // A firula clicável: a frase vai crescendo até "every lifetime?".
 const steps = [
-  { text: 'every night', icon: '🌙' },
-  { text: 'every day', icon: '☀️' },
+  { text: 'every night', icon: '🌚' },
+  { text: 'every day', icon: '🌞' },
   { text: 'how about every lifetime?', icon: '∞', final: true },
 ]
 

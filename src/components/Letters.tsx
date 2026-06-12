@@ -24,7 +24,7 @@ export default function Letters() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
             whileHover={{ y: -6, rotate: -1 }}
-            className="flex aspect-[4/3] flex-col items-center justify-center rounded-2xl border border-rose/30 bg-white p-5 text-center shadow-sm"
+            className="flex aspect-[4/3] flex-col items-center justify-center rounded-2xl border border-rose/30 bg-cream p-5 text-center shadow-sm"
           >
             <span className="text-4xl">💌</span>
             <span className="mt-3 font-serif text-xl text-wine">{letter.title}</span>
@@ -48,8 +48,7 @@ export default function Letters() {
               exit={{ scale: 0.85, opacity: 0, y: 20 }}
               transition={{ type: 'spring', stiffness: 260, damping: 24 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-[#fffdf8] p-8 shadow-2xl"
-              style={{ backgroundImage: 'linear-gradient(180deg,#fffdf8,#fff7ef)' }}
+              className="relative max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-cream p-8 shadow-2xl"
             >
               <button
                 onClick={() => setOpen(null)}
