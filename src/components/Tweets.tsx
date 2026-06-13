@@ -16,12 +16,31 @@ function TweetCard({ tweet }: { tweet: Tweet }) {
   )
 }
 
+// card de altura fixa, com o tweet centralizado (pro carrossel do celular)
+function TweetCardUniform({ tweet }: { tweet: Tweet }) {
+  return (
+    <figure className="flex h-[440px] flex-col items-center justify-center rounded-2xl bg-cream p-3 shadow-sm ring-1 ring-rose/20">
+      <img
+        src={tweet.src}
+        alt={tweet.caption ?? 'tweet'}
+        loading="lazy"
+        className="max-h-[360px] max-w-full rounded-xl object-contain"
+      />
+      {tweet.caption && (
+        <figcaption className="pt-3 text-center font-hand text-lg text-rosedeep">
+          {tweet.caption}
+        </figcaption>
+      )}
+    </figure>
+  )
+}
+
 export default function Tweets() {
   return (
     <Section id="tweets" title="o mural" subtitle="prints que são literalmente a gente">
-      {/* celular: carrossel */}
+      {/* celular: carrossel (cards do mesmo tamanho, tweet centralizado) */}
       <div className="sm:hidden">
-        <Carousel slides={tweets.map((t) => <TweetCard key={t.src} tweet={t} />)} />
+        <Carousel slides={tweets.map((t) => <TweetCardUniform key={t.src} tweet={t} />)} />
       </div>
 
       {/* desktop: mosaico */}
