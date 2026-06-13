@@ -11,17 +11,29 @@ function PassionCard({ p }: { p: Passion }) {
         onClick={() => setFlipped((f) => !f)}
         animate={{ rotateY: flipped ? 180 : 0 }}
         transition={{ duration: 0.6 }}
-        className="relative h-40 w-full cursor-pointer [transform-style:preserve-3d]"
+        className="relative h-44 w-full cursor-pointer [transform-style:preserve-3d]"
       >
-        {/* frente */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-4 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden]">
-          <span className="text-5xl drop-shadow-sm">{p.emoji}</span>
-          <h3 className="mt-2 font-serif text-lg text-wine">{p.title}</h3>
+        {/* frente: cluster de emojis com balançadinho */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-3 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden]">
+          <div className="flex max-w-[7rem] flex-wrap items-center justify-center gap-1.5">
+            {p.emojis.map((e, i) => (
+              <motion.span
+                key={i}
+                className="text-2xl sm:text-3xl"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: i * 0.2 }}
+              >
+                {e}
+              </motion.span>
+            ))}
+          </div>
+          <h3 className="mt-2 font-serif text-sm leading-tight text-wine sm:text-base">{p.title}</h3>
           <span className="mt-1 text-[10px] uppercase tracking-widest text-moss/60">toque</span>
         </div>
-        {/* verso */}
+
+        {/* verso: o textinho */}
         <div className="absolute inset-0 flex items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-4 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
-          <p className="font-hand text-xl leading-snug text-plum/90">{p.text}</p>
+          <p className="font-hand text-base leading-snug text-plum/90 sm:text-lg">{p.text}</p>
         </div>
       </motion.div>
     </div>

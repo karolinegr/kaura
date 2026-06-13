@@ -15,33 +15,38 @@ export type Photo = {
 
 export const photos: Photo[] = [
   {
-    src: '/photos/exemplo-1.svg',
-    caption: 'o dia em que tudo começou',
-    message: 'aqui começou a melhor parte da minha vida 💚',
+    src: '/photos/1-primeira-foto.jpg',
+    caption: 'nossa primeira foto 📸',
+    message: 'a primeira de muitas — e eu já sabia que era você 💚',
   },
   {
-    src: '/photos/exemplo-2.svg',
-    caption: 'aquele sorriso',
-    message: 'esse sorriso é o meu lugar favorito no mundo 🌷',
+    src: '/photos/2-brownie.jpg',
+    caption: 'como tudo começou 🍫',
+    message: 'um brownie, um acaso, e a minha vida inteira mudou.',
   },
   {
-    src: '/photos/exemplo-3.svg',
-    caption: 'nossa primeira viagem',
-    message: 'pra qualquer lugar, desde que seja com você ✈️',
+    src: '/photos/3-encaixe-perfeito.jpg',
+    caption: 'o encaixe perfeito 🧩',
+    message: 'feitas uma pra outra — você é o meu lugar no mundo.',
   },
   {
-    src: '/photos/exemplo-4.svg',
-    caption: 'café da manhã preguiçoso',
-    message: 'meus dias preferidos são os mais bobos com você ☕',
+    src: '/photos/4-vivendo-em-publico.jpg',
+    caption: 'a gente, em público 💕',
+    message: 'te amar à vista de todo mundo, sem medo nenhum.',
   },
   {
-    src: '/photos/exemplo-5.svg',
-    caption: 'a gente boba',
-    message: 'rir com você é a minha coisa favorita 🐱',
+    src: '/photos/5-amando-em-voz-alta.jpg',
+    caption: 'amando em voz alta 🎶',
+    message: 'não sei (nem quero) te amar baixinho.',
   },
   {
-    src: '/photos/exemplo-6.svg',
-    caption: 'pôr do sol favorito',
-    message: 'todo pôr do sol fica melhor do seu lado 💙',
+    src: '/photos/6-estadio.jpg',
+    caption: 'primeira vez no estádio ⚽',
+    message: 'gritar gol do seu lado é o meu tipo de felicidade 💙',
+  },
+  {
+    src: '/photos/7-beijo.jpg',
+    caption: 'o melhor beijo do mundo 💋',
+    message: 'o melhor beijo do mundo é, sempre, o seu.',
   },
 ]
