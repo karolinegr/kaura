@@ -5,6 +5,7 @@ import HeartParticles from './HeartParticles'
 
 // A firula clicável: a frase vai crescendo até "every lifetime?".
 const steps = [
+  { text: 'QUANTO TEMPO EU QUERO VOCÊ?', icon: '⏳' },
   { text: 'every night', icon: '🌚' },
   { text: 'every day', icon: '🌞' },
   { text: 'how about every lifetime?', icon: '∞', final: true },
@@ -43,22 +44,9 @@ export default function Lifetime() {
       <HeartParticles />
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
-          className="mb-10"
-        >
-          <h2 className="font-serif text-4xl font-semibold text-mix sm:text-5xl">every lifetime</h2>
-          <p className="mt-3 font-hand text-2xl text-moss">quanto tempo eu quero você?</p>
-          <div className="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-sage to-transparent" />
-        </motion.div>
-
-        {/* a caixinha: every night / every day / every lifetime? */}
         <button
           onClick={advance}
-          className="group relative mx-auto flex min-h-[160px] w-full max-w-xl flex-col items-center justify-center rounded-3xl border border-sage/40 bg-cream/70 px-6 py-8 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream/90"
+          className="group relative mx-auto flex min-h-[260px] w-full max-w-2xl flex-col items-center justify-center rounded-3xl border border-sage/40 bg-cream/70 px-8 py-12 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream/90 sm:min-h-[340px]"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -70,7 +58,7 @@ export default function Lifetime() {
               className="flex flex-col items-center"
             >
               <motion.span
-                className="text-5xl"
+                className="text-6xl sm:text-7xl"
                 animate={current.final ? { rotate: 360 } : { rotate: 0 }}
                 transition={
                   current.final
@@ -81,8 +69,8 @@ export default function Lifetime() {
                 {current.icon}
               </motion.span>
               <span
-                className={`mt-3 font-serif font-semibold ${
-                  current.final ? 'text-4xl text-mix sm:text-5xl' : 'text-3xl text-forest'
+                className={`mt-4 font-serif font-semibold ${
+                  current.final ? 'text-4xl text-mix sm:text-6xl' : 'text-3xl text-forest sm:text-4xl'
                 }`}
               >
                 {current.text}

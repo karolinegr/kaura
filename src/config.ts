@@ -6,7 +6,7 @@
 
 export const config = {
   /** Nome/título que aparece no topo e na aba do navegador. */
-  siteTitle: 'kaura',
+  siteTitle: 'KAURA',
 
   /** Frases que aparecem na abertura, uma de cada vez (efeito máquina de escrever). */
   taglines: [
@@ -15,9 +15,6 @@ export const config = {
     'de São Paulo a Caxias, com amor',
     'feliz aniversário de namoro 🌷',
   ],
-
-  /** Como vocês aparecem na abertura. */
-  coupleNames: 'Karoline & Laura',
 
   /** A "fórmula" do ship, mostrada com destaque na abertura. */
   shipFormula: 'KAroline + laURA',
@@ -34,12 +31,6 @@ export const config = {
   cityB: 'Caxias do Sul',
   /** Distância aproximada entre elas, em km (só pra mostrar na tela). */
   distanceKm: 765,
-
-  /**
-   * Senha que ela digita pra resgatar os vales/tickets.
-   * (não é segurança de verdade, é só pra ser fofo 😄)
-   */
-  ticketPassword: 'euteamo',
 
   /**
    * Música de fundo — toca o áudio do vídeo OFICIAL do YouTube.
