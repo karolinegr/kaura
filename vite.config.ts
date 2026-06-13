@@ -8,6 +8,6 @@ export default defineConfig({
   // então o base é '/'.
   // OBS: se um dia você publicar SEM domínio, no endereço
   // karolineribeiro.github.io/kaura/, troque o base para '/kaura/'.
-  base: '/kaura/',
+  base: '/',
   plugins: [react(), tailwindcss()],
 })

@@ -59,10 +59,6 @@ export default function Songs() {
           </motion.div>
         ))}
       </div>
-
-      <p className="mt-8 text-center font-hand text-lg text-moss sm:text-xl">
-        🎧 a primeira já está tocando aqui no site — é só apertar o play no canto ♡
-      </p>
     </Section>
   )
 }
