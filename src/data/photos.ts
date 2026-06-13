@@ -17,7 +17,7 @@ export const photos: Photo[] = [
   {
     src: '/photos/1-primeira-foto.jpg',
     caption: 'nossa primeira foto 📸',
-    message: 'a primeira de muitas — e eu já sabia que era você 💚',
+    message: 'a primeira de muitas, e eu já sabia que era você 💚',
   },
   {
     src: '/photos/2-brownie.jpg',
@@ -27,7 +27,7 @@ export const photos: Photo[] = [
   {
     src: '/photos/3-encaixe-perfeito.jpg',
     caption: 'o encaixe perfeito 🧩',
-    message: 'feitas uma pra outra — você é o meu lugar no mundo.',
+    message: 'feitas uma pra outra (você é o meu lugar no mundo).',
   },
   {
     src: '/photos/4-vivendo-em-publico.jpg',
