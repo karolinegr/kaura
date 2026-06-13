@@ -1,33 +1,34 @@
 /* ════════════════════════════════════════════════════════════
-   O QUE A GENTE AMA
-   As coisas que são a cara de vocês. Edite à vontade.
+   O QUE A GENTE AMA (em comum)
+   4 cards. Cada um tem um conjunto de emojis, um título e o texto
+   que aparece ao virar o card. Edite à vontade.
    ════════════════════════════════════════════════════════════ */
 
 export type Passion = {
-  emoji: string
+  emojis: string[]
   title: string
   text: string
 }
 
 export const passions: Passion[] = [
   {
-    emoji: '🌷',
-    title: 'tulipas',
-    text: 'as suas favoritas — e cada uma me lembra você.',
+    emojis: ['🎨', '🖌️', '🧶', '✂️'],
+    title: 'arte & artesanato',
+    text: 'de tudo que eu já criei nessa vida, te amar é a minha obra-prima 🎨',
   },
   {
-    emoji: '🐱',
-    title: 'nossos filhinhos',
-    text: 'manhosos, dorminhocos e perfeitos — os gatos da nossa vida.',
+    emojis: ['🍵', '🧁', '🍮', '🍪'],
+    title: 'chá & doces',
+    text: 'um chazinho quente com algo doce e a melhor companhia do mundo.',
   },
   {
-    emoji: '🔵🔴',
+    emojis: ['💙', '❤️', '⚽'],
     title: 'Barça Femení',
-    text: 'gritar gol juntas, mesmo cada uma na sua cidade.',
+    text: 'torcer junto já é bom, mas o meu gol de placa foi te encontrar 💙❤️',
   },
   {
-    emoji: '🌍',
-    title: 'a gente',
-    text: 'duas cidades, um time, mil tulipas e um amor só.',
+    emojis: ['🐱', '🐶', '🐧', '🐦', '🐻'],
+    title: 'bichinhos',
+    text: 'sonho com uma casa cheia de bichinhos e de você, pra sempre 🐾',
   },
 ]
