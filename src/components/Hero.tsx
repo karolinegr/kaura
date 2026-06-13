@@ -47,7 +47,6 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.3 }}
         className="mt-4 flex flex-col items-center gap-1"
       >
-        <p className="text-lg text-cocoa/80">{config.coupleNames}</p>
         <p className="rounded-full bg-cream/70 px-3 py-1 text-xs uppercase tracking-[0.2em] text-moss">
           {config.shipFormula}
         </p>
