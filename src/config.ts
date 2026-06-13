@@ -49,4 +49,14 @@ export const config = {
    */
   youtubeId: 'd4lSke63WMI',
   musicTitle: 'I Believe — Jonas Brothers',
+
+  /**
+   * A surpresa do modo noturno: o mapa do céu na noite do primeiro beijo.
+   * (a imagem fica em public/sky.png) — ajuste a data se quiser.
+   */
+  firstKiss: {
+    place: 'Caxias do Sul, RS',
+    date: '16 de maio de 2026',
+    coords: "29°10′S · 51°11′O",
+  },
 }

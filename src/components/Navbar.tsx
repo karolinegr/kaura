@@ -11,7 +11,7 @@ const links = [
   { href: '#tweets', label: 'tweets' },
   { href: '#amamos', label: 'amamos' },
   { href: '#cruzadas', label: 'cruzadas' },
-  { href: '#vales', label: 'vales' },
+  { href: '#surpresa', label: 'surpresa' },
 ]
 
 type Props = {

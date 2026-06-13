@@ -11,7 +11,7 @@ import Letters from './components/Letters'
 import Tweets from './components/Tweets'
 import Passions from './components/Passions'
 import Crossword from './components/Crossword'
-import Tickets from './components/Tickets'
+import Surprise from './components/Surprise'
 import MusicPlayer from './components/MusicPlayer'
 import SafeBoundary from './components/SafeBoundary'
 import { useLocalStorage } from './hooks/useLocalStorage'
@@ -39,7 +39,7 @@ export default function App() {
         <Tweets />
         <Passions />
         <Crossword />
-        <Tickets />
+        <Surprise night={night} onReveal={() => setNight(true)} />
       </main>
       <footer className="relative z-10 bg-[#3f5233] py-10 text-center text-white/85 night:bg-[#0b1020]">
         <p className="font-hand text-3xl">feito com amor pra você, Laura ♡</p>
