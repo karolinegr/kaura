@@ -83,7 +83,7 @@ export default function MusicPlayer() {
   return (
     <div className="fixed bottom-5 right-5 z-40">
       {/* iframe escondido (fora da tela, mas presente pra poder tocar) */}
-      <div className="pointer-events-none fixed -left-[9999px] bottom-0 opacity-0" aria-hidden>
+      <div className="pointer-events-none fixed bottom-0 left-0 h-0 w-0 overflow-hidden opacity-0" aria-hidden>
         <YouTube videoId={config.youtubeId} opts={opts} onReady={onReady} onStateChange={onStateChange} />
       </div>
 

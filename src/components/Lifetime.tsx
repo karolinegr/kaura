@@ -11,12 +11,18 @@ const steps = [
 ]
 
 function heartBurst() {
-  const shapes = ['💚', '🤎', '💙', '🌷'].map((t) => confetti.shapeFromText({ text: t, scalar: 2.2 }))
-  confetti({ particleCount: 36, spread: 110, startVelocity: 40, scalar: 2.2, shapes, origin: { y: 0.5 } })
-  setTimeout(
-    () => confetti({ particleCount: 24, spread: 80, scalar: 1.6, shapes, origin: { y: 0.55 } }),
-    140,
-  )
+  const colors = ['#d96f93', '#a7bd8a', '#6f854f', '#5f80a0', '#c79a4a']
+  try {
+    const shapes = ['💚', '🤎', '💙', '🌷'].map((t) => confetti.shapeFromText({ text: t, scalar: 2.2 }))
+    confetti({ particleCount: 36, spread: 110, startVelocity: 40, scalar: 2.2, shapes, origin: { y: 0.5 } })
+    setTimeout(
+      () => confetti({ particleCount: 24, spread: 80, scalar: 1.6, shapes, origin: { y: 0.55 } }),
+      140,
+    )
+  } catch {
+    // fallback caso shapeFromText não funcione no navegador
+    confetti({ particleCount: 60, spread: 110, startVelocity: 40, colors, origin: { y: 0.5 } })
+  }
 }
 
 export default function Lifetime() {
@@ -24,11 +30,9 @@ export default function Lifetime() {
   const current = steps[step]
 
   const advance = () => {
-    setStep((s) => {
-      const next = (s + 1) % steps.length
-      if (steps[next].final) heartBurst()
-      return next
-    })
+    const next = (step + 1) % steps.length
+    setStep(next)
+    if (steps[next].final) heartBurst()
   }
 
   return (

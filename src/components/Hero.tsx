@@ -4,7 +4,6 @@ import { useTimeTogether, type Duration } from '../hooks/useTimeTogether'
 import Typewriter from './Typewriter'
 
 const units: { key: keyof Duration; label: string }[] = [
-  { key: 'years', label: 'anos' },
   { key: 'months', label: 'meses' },
   { key: 'days', label: 'dias' },
   { key: 'hours', label: 'horas' },
