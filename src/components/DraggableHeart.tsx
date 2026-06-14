@@ -14,6 +14,9 @@ type Props = {
  * Um coração que você arrasta pela tela — e que sempre volta, com mola,
  * pro lugar de origem. ("eu sempre volto pra você")
  */
+const IDLE_LABEL = 'me arrasta?'
+const HELD_LABEL = 'mas pode me jogar pra qualquer canto do mapa que eu sempre volto pra você. ♡'
+
 export default function DraggableHeart({ emoji = '💙', labelClass = 'text-blue' }: Props) {
   const [held, setHeld] = useState(false)
   // depois que a pessoa interage a 1ª vez, paramos a "isca" de movimento
@@ -75,9 +78,11 @@ export default function DraggableHeart({ emoji = '💙', labelClass = 'text-blue
           </motion.span>
         </animated.button>
       </div>
-      <p className={`mt-3 font-hand text-xl ${labelClass}`}>
-        {held ? 'mas pode me jogar pra qualquer canto do mapa que eu sempre volto pra você. ♡' : 'me arrasta?'}
-      </p>
+      {/* o texto longo (invisível) reserva a altura sempre — sem reflow ao arrastar */}
+      <div className={`mt-3 grid max-w-xs place-items-center text-center font-hand text-xl ${labelClass}`}>
+        <span aria-hidden className="invisible [grid-area:1/1]">{HELD_LABEL}</span>
+        <span className="[grid-area:1/1]">{held ? HELD_LABEL : IDLE_LABEL}</span>
+      </div>
     </div>
   )
 }

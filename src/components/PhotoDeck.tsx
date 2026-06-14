@@ -70,6 +70,9 @@ export default function PhotoDeck() {
 
   return (
     <div className="flex flex-col items-center">
+      <p className="mb-3 text-center font-hand text-lg text-moss/60">
+        👇 toque numa foto pra abrir e ler o recadinho
+      </p>
       <div className="relative flex h-[420px] w-full max-w-sm items-center justify-center">
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div
@@ -95,14 +98,9 @@ export default function PhotoDeck() {
           </animated.div>
         ))}
       </div>
-      <div className="mt-6 flex flex-col items-center gap-2">
-        <p className="text-center font-hand text-xl text-moss">
-          arraste a foto de lado pra trocar 👈👉
-        </p>
-        <span className="rounded-full bg-moss/10 px-4 py-1.5 text-sm font-medium text-moss">
-          👆 toque numa foto pra abrir e ler o recadinho
-        </span>
-      </div>
+      <p className="mt-3 text-center font-hand text-lg text-moss/60">
+        arraste a foto de lado pra trocar 👈👉
+      </p>
 
       {/* zoom da foto + mensagem especial (portal pra ficar acima de tudo) */}
       {createPortal(

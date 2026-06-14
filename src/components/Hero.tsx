@@ -15,6 +15,11 @@ function pad(n: number) {
   return String(n).padStart(2, '0')
 }
 
+/** Dias inteiros decorridos desde uma data ISO. */
+function daysSince(iso: string) {
+  return Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000))
+}
+
 export default function Hero() {
   const t = useTimeTogether(config.startDate)
 
@@ -77,6 +82,38 @@ export default function Hero() {
         <p className="mt-5 font-hand text-xl text-brown">
           são {t.totalDays.toLocaleString('pt-BR')} dias de nós ♡
         </p>
+      </motion.div>
+
+      {/* mini-timeline: a nossa história começou bem antes do namoro */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.6 }}
+        className="mt-10 w-full max-w-lg"
+      >
+        <p className="mb-5 font-hand text-lg text-moss/90">mas tudo começou bem antes...</p>
+        <div className="relative flex items-start justify-between">
+          {/* fiozinho conectando os marcos */}
+          <div className="absolute inset-x-5 top-5 h-0.5 rounded-full bg-gradient-to-r from-brown/50 via-forest/50 to-blue/60" />
+          {config.milestones.map((m, i) => (
+            <motion.div
+              key={m.date}
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.8 + i * 0.18 }}
+              className="relative z-10 flex w-1/3 flex-col items-center px-1 text-center"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-sage/40 bg-cream text-lg shadow-sm">
+                {m.icon}
+              </div>
+              <span className="mt-2 font-serif text-2xl font-semibold leading-none text-forest">
+                {daysSince(m.date).toLocaleString('pt-BR')}
+              </span>
+              <span className="text-[10px] uppercase tracking-wider text-cocoa/50">dias</span>
+              <span className="mt-1 font-hand text-base leading-tight text-brown">{m.label}</span>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
 
       <motion.a

@@ -26,6 +26,17 @@ export const config = {
    */
   startDate: '2026-05-16T00:00:00',
 
+  /**
+   * Marcos da história de vocês, em ordem cronológica (a mini-timeline da
+   * abertura mostra quantos dias já se passaram desde cada um).
+   * Formato da data: 'AAAA-MM-DDThh:mm:ss'.
+   */
+  milestones: [
+    { date: '2026-03-21T00:00:00', icon: '✨', label: 'a gente se achou' },
+    { date: '2026-04-04T00:00:00', icon: '💬', label: 'começamos a conversar' },
+    { date: '2026-05-16T00:00:00', icon: '💚', label: 'começamos a namorar' },
+  ],
+
   /** Cidades de vocês (usadas na seção da distância). */
   cityA: 'São Paulo',
   cityB: 'Caxias do Sul',
