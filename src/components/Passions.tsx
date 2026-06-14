@@ -15,6 +15,17 @@ function PassionCard({ p }: { p: Passion }) {
       >
         {/* frente: cluster de emojis com balançadinho */}
         <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-3 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden]">
+          {/* selo de cantinho: deixa claro que o card VIRA (não é quiz) */}
+          <span className="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-mix/10 px-2 py-0.5 text-[10px] font-semibold text-mix">
+            <motion.span
+              className="inline-block"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+            >
+              ↻
+            </motion.span>
+            virar
+          </span>
           <div className="flex max-w-[7rem] flex-wrap items-center justify-center gap-1.5">
             {p.emojis.map((e, i) => (
               <motion.span
@@ -28,12 +39,15 @@ function PassionCard({ p }: { p: Passion }) {
             ))}
           </div>
           <h3 className="mt-2 font-serif text-sm leading-tight text-wine sm:text-base">{p.title}</h3>
-          <span className="mt-1 text-[10px] uppercase tracking-widest text-moss/60">toque</span>
+          <span className="mt-1 rounded-full bg-moss/10 px-2 py-0.5 text-[10px] font-medium text-moss">
+            👆 toque pra virar
+          </span>
         </div>
 
         {/* verso: o textinho */}
-        <div className="absolute inset-0 flex items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-4 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-4 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <p className="font-hand text-base leading-snug text-plum/90 sm:text-lg">{p.text}</p>
+          <span className="mt-2 text-[10px] uppercase tracking-widest text-moss/50">↺ toque pra voltar</span>
         </div>
       </motion.div>
     </div>
@@ -42,7 +56,11 @@ function PassionCard({ p }: { p: Passion }) {
 
 export default function Passions() {
   return (
-    <Section id="amamos" title="o que a gente ama" subtitle="toque pra revelar 💚">
+    <Section
+      id="amamos"
+      title="o que a gente ama"
+      subtitle="não é quiz 💚 cada cartãozinho vira quando você toca — espia o que tem atrás"
+    >
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {passions.map((p, i) => (
           <motion.div

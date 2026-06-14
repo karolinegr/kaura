@@ -67,10 +67,14 @@ export default function Surprise({ night, onReveal }: Props) {
             >
               <Sparkles count={34} />
               <div className="relative z-10">
-                <p className="font-hand text-2xl text-[#9fc0ea]">a revelação  ✨</p>
-                <h3 className="mt-1 font-serif text-2xl leading-tight text-[#f5f0e6] sm:text-3xl">
-                  Como estava o céu de {config.firstKiss.place.split(',')[0]} na hora do nosso primeiro beijo 💫
+                <p className="font-hand text-2xl text-[#9fc0ea]">a revelação ✨</p>
+                <h3 className="mt-1 font-serif text-3xl leading-tight text-[#f5f0e6] sm:text-4xl">
+                  O céu da nossa primeira vez 💫
                 </h3>
+                <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#cdd6e6] sm:text-base">
+                  Era <b className="text-[#f5f0e6]">exatamente assim</b> que o céu estava sobre{' '}
+                  {config.firstKiss.place.split(',')[0]} no dia em que nos beijamos a primeira vez.
+                </p>
 
                 <motion.div
                   initial={{ opacity: 0, scale: 0.85 }}

@@ -30,6 +30,16 @@ export default function PhotoDeck() {
     }
   }, [zoom])
 
+  // fechar o zoom com Esc (a navegação entre fotos é no baralho, arrastando)
+  useEffect(() => {
+    if (zoom === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setZoom(null)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [zoom])
+
   const bind = useDrag(
     ({ args: [index], tap, active, movement: [mx], direction: [xDir], velocity: [vx] }) => {
       if (tap) {
@@ -85,9 +95,14 @@ export default function PhotoDeck() {
           </animated.div>
         ))}
       </div>
-      <p className="mt-6 text-center font-hand text-xl text-moss">
-        arraste pra trocar • toque pra ampliar 💫
-      </p>
+      <div className="mt-6 flex flex-col items-center gap-2">
+        <p className="text-center font-hand text-xl text-moss">
+          arraste a foto de lado pra trocar 👈👉
+        </p>
+        <span className="rounded-full bg-moss/10 px-4 py-1.5 text-sm font-medium text-moss">
+          👆 toque numa foto pra abrir e ler o recadinho
+        </span>
+      </div>
 
       {/* zoom da foto + mensagem especial (portal pra ficar acima de tudo) */}
       {createPortal(
@@ -98,9 +113,10 @@ export default function PhotoDeck() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setZoom(null)}
-            className="fixed inset-0 z-[70] flex items-center justify-center bg-forest/80 p-5 backdrop-blur-sm"
+            className="fixed inset-0 z-[70] flex flex-col items-center justify-center bg-forest/80 p-5 backdrop-blur-sm"
           >
             <motion.figure
+              key={zoom}
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
@@ -117,10 +133,19 @@ export default function PhotoDeck() {
                 {photos[zoom].message ?? photos[zoom].caption}
               </figcaption>
             </motion.figure>
+
+            {/* convite pra voltar ao baralho e arrastar pra próxima */}
+            <button
+              onClick={() => setZoom(null)}
+              className="mt-5 flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 font-hand text-xl text-white transition-colors hover:bg-white/30"
+            >
+              👈 volta pra ver a próxima?
+            </button>
+
             <button
               onClick={() => setZoom(null)}
               aria-label="fechar"
-              className="absolute right-5 top-5 text-3xl text-white/80 hover:text-white"
+              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-3xl text-white transition-colors hover:bg-white/40"
             >
               ×
             </button>

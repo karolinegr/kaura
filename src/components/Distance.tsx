@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import Section from './Section'
+import DraggableHeart from './DraggableHeart'
 import { config } from '../config'
 
 
@@ -138,6 +139,22 @@ export default function Distance() {
         <p className="mt-3 text-center font-hand text-xl text-moss sm:text-2xl">
           {config.distanceKm.toLocaleString('pt-BR')} km que não significam nada quando o coração já mora aí.
         </p>
+      </motion.div>
+
+      {/* o coraçãozinho azul (você): a distância tenta afastar, mas ele sempre volta */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.15 }}
+        className="mx-auto mt-8 flex max-w-md flex-col items-center rounded-2xl bg-blue/5 px-6 py-7 text-center"
+      >
+        <p className="mt-2 max-w-xs font-hand text-xl text-blue/90">
+          a distância insiste em tentar me afastar de você…
+        </p>
+        <div className="mt-5">
+          <DraggableHeart emoji="💙" labelClass="text-blue" />
+        </div>
       </motion.div>
     </Section>
   )

@@ -77,9 +77,24 @@ export default function Lifetime() {
               </span>
             </motion.div>
           </AnimatePresence>
-          <span className="mt-5 text-xs uppercase tracking-[0.2em] text-moss/60">
-            {current.final ? 'clique pra reviver ♡' : 'clique'}
-          </span>
+          {/* bolinhas de progresso: deixa claro que são várias etapas */}
+          <div className="mt-6 flex items-center gap-2">
+            {steps.map((_, i) => (
+              <span
+                key={i}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === step ? 'w-6 bg-mix' : i < step ? 'w-2 bg-moss/50' : 'w-2 bg-sage/40'
+                }`}
+              />
+            ))}
+          </div>
+          <motion.span
+            className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-mix/10 px-4 py-1.5 text-sm font-medium text-mix"
+            animate={{ scale: [1, 1.06, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            {current.final ? '↺ toque pra reviver desde o começo' : 'toque pra continuar →'}
+          </motion.span>
         </button>
       </div>
     </section>

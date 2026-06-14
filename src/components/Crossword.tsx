@@ -267,6 +267,10 @@ export default function Crossword() {
 
         {/* dicas (lista completa em todos os tamanhos) */}
         <div className="w-full max-w-md rounded-2xl border border-sage/30 bg-cream/60 p-5 shadow-sm backdrop-blur-sm lg:max-w-sm">
+          <p className="mb-4 flex items-center justify-center gap-2 rounded-xl bg-blue/10 px-3 py-2 text-center text-sm text-forest">
+            <span className="text-base">👇</span>
+            toque na dica pra <b className="font-semibold">acender a palavra</b>
+          </p>
           <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
             {[
               { title: 'horizontais', arrow: '→', list: across },
