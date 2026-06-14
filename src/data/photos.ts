@@ -27,7 +27,7 @@ export const photos: Photo[] = [
   {
     src: '/photos/3-encaixe-perfeito.jpg',
     caption: 'o encaixe perfeito 🧩',
-    message: 'feitas uma pra outra (você é o meu lugar no mundo).',
+    message: 'feitas uma para outra (você é o meu lugar no mundo).',
   },
   {
     src: '/photos/4-vivendo-em-publico.jpg',

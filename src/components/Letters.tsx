@@ -29,7 +29,7 @@ function LetterCard({
           <span className="text-6xl">💌</span>
           <span className="mt-4 font-serif text-xl text-wine">{letter.title}</span>
           <span className="mt-2 text-xs uppercase tracking-widest text-rosedeep/70">
-            toque pra abrir
+            toque para abrir
           </span>
         </div>
 
@@ -66,7 +66,7 @@ export default function Letters() {
     <Section
       id="cartinhas"
       title="cartinhas"
-      subtitle="toque num envelope pra abrir"
+      subtitle="toque em um envelope para abrir"
       className="bg-gradient-to-b from-cream to-blush/40"
     >
       {/* celular e tablet: carrossel */}

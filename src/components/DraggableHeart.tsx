@@ -15,7 +15,7 @@ type Props = {
  * pro lugar de origem. ("eu sempre volto pra você")
  */
 const IDLE_LABEL = 'me arrasta?'
-const HELD_LABEL = 'mas pode me jogar pra qualquer canto do mapa que eu sempre volto pra você. ♡'
+const HELD_LABEL = 'mas pode me jogar para qualquer canto do mapa que eu sempre volto para você. ♡'
 
 export default function DraggableHeart({ emoji = '💙', labelClass = 'text-blue' }: Props) {
   const [held, setHeld] = useState(false)

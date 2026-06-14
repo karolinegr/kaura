@@ -97,7 +97,7 @@ export default function Surprise({ night, onReveal }: Props) {
                   <span className="text-sm text-[#cdd6e6]/70">
                     {config.firstKiss.date} · {config.firstKiss.coords}
                   </span>
-                  <span className="mt-2 text-xs text-[#9fc0ea]/70">🔭 toque no mapa pra ampliar</span>
+                  <span className="mt-2 text-xs text-[#9fc0ea]/70">🔭 toque no mapa para ampliar</span>
                   <span className="mt-3 font-hand text-xl text-[#9fc0ea]">
                     as estrelas estavam todas sorrindo para gente ♡
                   </span>

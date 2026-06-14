@@ -220,19 +220,22 @@ export default function Crossword() {
                     value={value}
                     onChange={(e) => handleChange(r, c, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(r, c, e)}
-                    onFocus={() => selectCell(r, c)}
-                    onClick={() => selectCell(r, c)}
+                    onFocus={(e) => { selectCell(r, c); e.target.select() }}
+                    onClick={(e) => { selectCell(r, c); e.currentTarget.select() }}
                     inputMode="text"
-                    maxLength={1}
                     aria-label={`linha ${r + 1}, coluna ${c + 1}`}
                     style={{ fontSize: Math.round(cellPx * 0.52) }}
-                    className={`h-full w-full rounded-sm border text-center font-serif font-semibold uppercase caret-transparent outline-none transition-colors ${
-                      isActive
-                        ? 'border-blue bg-blue/30'
-                        : inWord
-                          ? 'border-sage/60 bg-blue/10'
-                          : 'border-sage/40 bg-cream'
-                    } ${correct ? 'text-moss' : wrong ? 'text-tulip' : 'text-forest'}`}
+                    className={`h-full w-full rounded-sm text-center font-serif font-semibold uppercase caret-transparent outline-none transition-colors ${
+                      correct
+                        ? 'border-2 border-moss bg-moss/30 text-forest'
+                        : wrong
+                          ? 'border-2 border-tulip bg-tulip/30 text-tulip line-through'
+                          : isActive
+                            ? 'border border-blue bg-blue/30 text-forest'
+                            : inWord
+                              ? 'border border-sage/60 bg-blue/10 text-forest'
+                              : 'border border-sage/40 bg-cream text-forest'
+                    }`}
                   />
                 </div>
               )
@@ -258,17 +261,17 @@ export default function Crossword() {
             <motion.p
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mt-4 text-center font-hand text-3xl text-mix"
+              className="mx-auto mt-4 max-w-xs text-balance text-center font-hand text-2xl text-mix sm:max-w-none sm:text-3xl"
             >
-              isso! você nos conhece de cor 💚🤎💙
+              isso! você nos conhece <span className="whitespace-nowrap">de cor 💚🤎💙</span>
             </motion.p>
           )}
         </div>
 
         {/* dicas (lista completa em todos os tamanhos) */}
         <div className="w-full max-w-md rounded-2xl border border-sage/30 bg-cream/60 p-5 shadow-sm backdrop-blur-sm lg:max-w-sm">
-          <p className="mb-4 flex items-center justify-center gap-2 rounded-xl bg-blue/10 px-3 py-2 text-center text-sm text-forest">
-            <span className="text-base">👇</span>
+          <p className="mb-4 flex items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-blue/10 px-3 py-2 text-center text-xs text-forest sm:text-sm">
+            <span className="text-sm sm:text-base">👇</span>
             toque na dica pra <b className="font-semibold">acender a palavra</b>
           </p>
           <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">

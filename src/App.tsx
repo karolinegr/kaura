@@ -42,7 +42,7 @@ export default function App() {
         <Surprise night={night} onReveal={() => setNight(true)} />
       </main>
       <footer className="relative z-10 bg-[#3f5233] py-10 text-center text-white/85 night:bg-[#0b1020]">
-        <p className="font-hand text-3xl">feito com amor pra você, Laura ♡</p>
+        <p className="font-hand text-3xl">feito com amor para você, Laura ♡</p>
         <p className="mt-2 text-sm text-white/55">
           {config.shipFormula} · {config.siteTitle} · {new Date().getFullYear()}
         </p>

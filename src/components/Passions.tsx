@@ -40,14 +40,14 @@ function PassionCard({ p }: { p: Passion }) {
           </div>
           <h3 className="mt-2 font-serif text-sm leading-tight text-wine sm:text-base">{p.title}</h3>
           <span className="mt-1 rounded-full bg-moss/10 px-2 py-0.5 text-[10px] font-medium text-moss">
-            👆 toque pra virar
+            👆 toque para virar
           </span>
         </div>
 
         {/* verso: o textinho */}
         <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-4 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <p className="font-hand text-base leading-snug text-plum/90 sm:text-lg">{p.text}</p>
-          <span className="mt-2 text-[10px] uppercase tracking-widest text-moss/50">↺ toque pra voltar</span>
+          <span className="mt-2 text-[10px] uppercase tracking-widest text-moss/50">↺ toque para voltar</span>
         </div>
       </motion.div>
     </div>
@@ -59,7 +59,7 @@ export default function Passions() {
     <Section
       id="amamos"
       title="o que a gente ama"
-      subtitle="não é quiz 💚 cada cartãozinho vira quando você toca — espia o que tem atrás"
+      subtitle="cada cartãozinho vira quando você toca: vem espiar o que tem atrás"
     >
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {passions.map((p, i) => (

@@ -57,7 +57,7 @@ export const songs: Song[] = [
     lines: [
       '“Meu amor, você me dá sorte',
       'Meu amor, você me dá sorte',
-      'Meu amor, você me dá sorte de cara”',
+      'Meu amor, você me dá sorte na vida”',
     ],
     note: 'sortuda sou eu que te encontrei 🤞🏼',
     accent: 'moss',

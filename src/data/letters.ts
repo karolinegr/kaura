@@ -14,7 +14,7 @@ export type Letter = {
 
 export const letters: Letter[] = [
   {
-    title: 'pra quando você sentir saudade',
+    title: 'para quando você sentir saudade',
     body: `Se você está lendo isso, respira fundo e lembra:
 eu escolho você todos os dias, mesmo nos dias difíceis.
 Você é o meu lugar favorito.`,
@@ -23,7 +23,7 @@ Você é o meu lugar favorito.`,
   {
     title: 'a primeira vez que te vi',
     body: `Eu nem sabia ainda, mas alguma coisa em mim já tinha decidido
-que queria ficar perto de você pra sempre.
+que queria ficar perto de você para sempre.
 E olha só onde a gente chegou.`,
     sign: 'sua',
   },

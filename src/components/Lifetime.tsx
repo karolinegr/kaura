@@ -46,37 +46,40 @@ export default function Lifetime() {
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <button
           onClick={advance}
-          className="group relative mx-auto flex min-h-[260px] w-full max-w-2xl flex-col items-center justify-center rounded-3xl border border-sage/40 bg-cream/70 px-8 py-12 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream/90 sm:min-h-[340px]"
+          className="group relative mx-auto flex w-full max-w-2xl flex-col items-center justify-center rounded-3xl border border-sage/40 bg-cream/70 px-8 py-10 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream/90"
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={step}
-              initial={{ opacity: 0, scale: 0.8, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: -12 }}
-              transition={{ duration: 0.35 }}
-              className="flex flex-col items-center"
-            >
-              <motion.span
-                className="text-6xl sm:text-7xl"
-                animate={current.final ? { rotate: 360 } : { rotate: 0 }}
-                transition={
-                  current.final
-                    ? { duration: 6, repeat: Infinity, ease: 'linear' }
-                    : { duration: 0.3 }
-                }
+          {/* área de altura fixa: absorve as diferenças de tamanho entre as etapas */}
+          <div className="flex h-[180px] w-full items-center justify-center sm:h-[230px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, scale: 0.8, y: 12 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.8, y: -12 }}
+                transition={{ duration: 0.35 }}
+                className="flex flex-col items-center"
               >
-                {current.icon}
-              </motion.span>
-              <span
-                className={`mt-4 font-serif font-semibold ${
-                  current.final ? 'text-4xl text-mix sm:text-6xl' : 'text-3xl text-forest sm:text-4xl'
-                }`}
-              >
-                {current.text}
-              </span>
-            </motion.div>
-          </AnimatePresence>
+                <motion.span
+                  className="text-6xl sm:text-7xl"
+                  animate={current.final ? { rotate: 360 } : { rotate: 0 }}
+                  transition={
+                    current.final
+                      ? { duration: 6, repeat: Infinity, ease: 'linear' }
+                      : { duration: 0.3 }
+                  }
+                >
+                  {current.icon}
+                </motion.span>
+                <span
+                  className={`mt-4 font-serif font-semibold leading-tight ${
+                    current.final ? 'text-4xl text-mix sm:text-6xl' : 'text-3xl text-forest sm:text-4xl'
+                  }`}
+                >
+                  {current.text}
+                </span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
           {/* bolinhas de progresso: deixa claro que são várias etapas */}
           <div className="mt-6 flex items-center gap-2">
             {steps.map((_, i) => (
@@ -89,11 +92,11 @@ export default function Lifetime() {
             ))}
           </div>
           <motion.span
-            className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-mix/10 px-4 py-1.5 text-sm font-medium text-mix"
+            className="mt-3 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-mix/10 px-4 py-1.5 text-sm font-medium text-mix"
             animate={{ scale: [1, 1.06, 1] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {current.final ? '↺ toque pra reviver desde o começo' : 'toque pra continuar →'}
+            {current.final ? '↺ toque para reviver desde o começo' : 'toque para continuar →'}
           </motion.span>
         </button>
       </div>

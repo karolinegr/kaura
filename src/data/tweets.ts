@@ -15,6 +15,6 @@ export const tweets: Tweet[] = [
   { src: '/tweets/2-vai-que-cola.png', caption: 'uma hora consigo esse autógrafo 💘' },
   { src: '/tweets/3-coalinha.png', caption: 'minha coalinha favorita 🐨' },
   { src: '/tweets/4-distancia.png', caption: 'perto, mesmo com a distância 💌' },
-  { src: '/tweets/5-tribunal.png', caption: 'sentença: te amar pra sempre  ⚖️' },
+  { src: '/tweets/5-tribunal.png', caption: 'sentença: te amar para sempre  ⚖️' },
   { src: '/tweets/6-nosso-futuro.png', caption: 'o nosso futuro é a minha parte favorita 🏡' },
 ]

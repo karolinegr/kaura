@@ -17,7 +17,7 @@ export const passions: Passion[] = [
     text: 'de tudo que eu já criei nessa vida, te amar é a minha obra-prima 🎨',
   },
   {
-    emojis: ['🍵', '🧁', '🍮', '🍪'],
+    emojis: ['☕', '🍰', '🍮', '🍪'],
     title: 'chá & doces',
     text: 'um chazinho quente com algo doce e a melhor companhia do mundo.',
   },
@@ -29,6 +29,6 @@ export const passions: Passion[] = [
   {
     emojis: ['🐱', '🐶', '🐧', '🐦', '🐻'],
     title: 'bichinhos',
-    text: 'sonho com uma casa cheia de bichinhos e de você, pra sempre 🐾',
+    text: 'nós no multiverso dos bichinhos e em todas as vidas.',
   },
 ]

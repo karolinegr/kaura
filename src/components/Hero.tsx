@@ -123,7 +123,7 @@ export default function Hero() {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-8 flex flex-col items-center text-moss/70 transition-colors hover:text-moss"
       >
-        <span className="text-xs uppercase tracking-widest">role pra baixo</span>
+        <span className="text-xs uppercase tracking-widest">role para baixo</span>
         <span className="mt-1 animate-bounce text-2xl">⌄</span>
       </motion.a>
     </section>
