@@ -11,7 +11,7 @@ function PassionCard({ p }: { p: Passion }) {
         onClick={() => setFlipped((f) => !f)}
         animate={{ rotateY: flipped ? 180 : 0 }}
         transition={{ duration: 0.6 }}
-        className="relative h-44 w-full cursor-pointer [transform-style:preserve-3d]"
+        className="relative h-52 w-full cursor-pointer [transform-style:preserve-3d]"
       >
         {/* frente: cluster de emojis com balançadinho */}
         <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-sage/30 bg-cream/90 p-3 text-center shadow-sm backdrop-blur-sm [backface-visibility:hidden]">
@@ -26,7 +26,13 @@ function PassionCard({ p }: { p: Passion }) {
             </motion.span>
             virar
           </span>
-          <div className="flex max-w-[7rem] flex-wrap items-center justify-center gap-1.5">
+          <div
+            className={
+              p.emojis.length === 4
+                ? 'grid grid-cols-2 place-items-center justify-center gap-1.5'
+                : 'flex max-w-[7rem] flex-wrap items-center justify-center gap-1.5'
+            }
+          >
             {p.emojis.map((e, i) => (
               <motion.span
                 key={i}
