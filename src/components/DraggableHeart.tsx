@@ -53,9 +53,9 @@ export default function DraggableHeart({ emoji = '💙', labelClass = 'text-blue
             aria-hidden
             className="pointer-events-none absolute inset-0 flex items-center justify-center text-7xl leading-none blur-[3px]"
             style={{ transformOrigin: '50% 50%' }}
-            initial={{ scale: 1, opacity: 0.35 }}
-            animate={{ scale: [1, 2], opacity: [0.35, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeOut', delay }}
+            initial={{ scale: 1, opacity: 0 }}
+            animate={{ scale: [1, 1.7, 2], opacity: [0.35, 0, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeOut', delay, times: [0, 0.7, 1] }}
           >
             {emoji}
           </motion.span>
