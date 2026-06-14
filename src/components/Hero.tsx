@@ -110,6 +110,7 @@ export default function Hero() {
                 {daysSince(m.date).toLocaleString('pt-BR')}
               </span>
               <span className="text-[10px] uppercase tracking-wider text-cocoa/50">dias</span>
+              <span className="text-[9px] lowercase tracking-wide text-cocoa/35">atrás</span>
               <span className="mt-1 font-hand text-base leading-tight text-brown">{m.label}</span>
             </motion.div>
           ))}

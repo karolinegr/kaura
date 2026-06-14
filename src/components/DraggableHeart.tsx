@@ -45,14 +45,16 @@ export default function DraggableHeart({ emoji = '💙', labelClass = 'text-blue
   return (
     <div className="flex flex-col items-center">
       <div className={`relative h-24 w-24 ${labelClass}`}>
-        {/* o próprio coração pulsando em eco — mesma forma e alinhamento do emoji */}
+        {/* coração pulsando em eco — levemente borrado (vira um brilho/sombra
+            suave), o que esconde o "escorregão" do glyph do emoji ao crescer */}
         {[0, 0.75].map((delay) => (
           <motion.span
             key={delay}
             aria-hidden
-            className="pointer-events-none absolute inset-0 flex items-center justify-center text-7xl leading-none"
-            initial={{ scale: 1, opacity: 0.4 }}
-            animate={{ scale: [1, 2], opacity: [0.4, 0] }}
+            className="pointer-events-none absolute inset-0 flex items-center justify-center text-7xl leading-none blur-[3px]"
+            style={{ transformOrigin: '50% 50%' }}
+            initial={{ scale: 1, opacity: 0.35 }}
+            animate={{ scale: [1, 2], opacity: [0.35, 0] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: 'easeOut', delay }}
           >
             {emoji}
