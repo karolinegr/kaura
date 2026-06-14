@@ -45,20 +45,22 @@ export default function DraggableHeart({ emoji = '💙', labelClass = 'text-blue
   return (
     <div className="flex flex-col items-center">
       <div className={`relative h-24 w-24 ${labelClass}`}>
-        {/* coração pulsando em eco — levemente borrado (vira um brilho/sombra
-            suave), o que esconde o "escorregão" do glyph do emoji ao crescer */}
-        {[0, 0.75].map((delay) => (
-          <motion.span
+        {/* eco do coração em SVG (vetor): escala lisa, sem rasterizar nem dar
+            flash como o emoji. Levemente borrado, vira um brilho/sombra suave. */}
+        {[0, 1.2].map((delay) => (
+          <motion.svg
             key={delay}
             aria-hidden
-            className="pointer-events-none absolute inset-0 flex items-center justify-center text-7xl leading-none blur-[3px]"
+            viewBox="0 0 24 24"
+            fill="#7da1c5"
+            className="pointer-events-none absolute inset-0 m-auto h-24 w-24 blur-[2px]"
             style={{ transformOrigin: '50% 50%' }}
             initial={{ scale: 1, opacity: 0 }}
-            animate={{ scale: [1, 1.7, 2], opacity: [0.35, 0, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: 'easeOut', delay, times: [0, 0.7, 1] }}
+            animate={{ scale: [1, 1.6, 2], opacity: [0.5, 0, 0] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut', delay, times: [0, 0.7, 1] }}
           >
-            {emoji}
-          </motion.span>
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </motion.svg>
         ))}
         <animated.button
           {...bind()}
